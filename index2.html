@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css' rel='stylesheet' type="text/css">
+    <title>Записаться</title>
+    <script>
+        // Function to handle selection of tours
+        function selectTour(tourName) {
+            const selectedTours = document.getElementById('selected-tours');
+            const existingSelection = selectedTours.value;
+            if (existingSelection) {
+                selectedTours.value += `, ${tourName}`;
+            } else {
+                selectedTours.value = tourName;
+            }
+        }
+
+        // Function to submit the form
+        function submitForm() {
+            const form = document.getElementById('tour-form');
+            const selectedTours = document.getElementById('selected-tours').value;
+            form.action = `https://www.google.ru/?hl=ru&selected=${encodeURIComponent(selectedTours)}`;
+            form.submit();
+        }
+    </script>
+</head>
+<body>
+    <header class="header bg-light p-3"> 
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index4.html">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Экскурcии</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="index2.html">Записаться</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index5.html">Тест</a></li>
+                    <li class="nav-item"><a class="btn btn-primary" href="index3.html">Наши контакты</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mt-4">
+        <h2 class="course-title">Заполни информацию</h2>
+        <form id='tour-form' method='get' target='_blank'>
+            <!-- Hidden input to store selected tours -->
+            <input type='hidden' id='selected-tours' name='selected-tours' value=''>
+            
+            <!-- Other form elements -->
+            <div class="mb-3">
+                <label>Укажите Ваш пол:</label><br>
+                <input type="radio" name="gender" value="female"> Женский
+                <input type="radio" name="gender" value="male" checked> Мужской
+            </div>
+
+            <!-- Additional form fields omitted for brevity -->
+
+            <!-- Tour Boxes -->
+            <div class="row mt-4">
+                <!-- Tour Item: Гатчина -->
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center">
+                        <img src="images/chto-posmotret-glavnaja-kartinka.jpg.c1200.jpg" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5>Гатчина</h5>
+                            <p>2000 рублей</p>
+                            <button type='button' class='btn btn-success' onclick='selectTour("Гатчина")'>Выбрать</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Item: Петергоф -->
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center">
+                        <img src="images/Grand_Cascade_of_Peterhof_01.jpg" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5>Петергоф</h5>
+                            <p>3000 рублей</p>
+                            <button type='button' class='btn btn-success' onclick='selectTour("Петергоф")'>Выбрать</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Item: Выборг -->
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center">
+                        <img src="images/Круглая_башня._г._Выборг.jpg" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5>Выборг</h5>
+                            <p>5000 рублей</p>
+                            <button type='button' class='btn btn-success' onclick='selectTour("Выборг")'>Выбрать</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Item: Комарова -->
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center">
+                        <img src="images/Komarovo.jpg" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5>Комарова</h5>
+                            <p>3000 рублей</p>
+                            <button type='button' class='btn btn-success' onclick='selectTour("Комарова")'>Выбрать</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Item: Кронштадт -->
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center">
+                        <img src="images/Kronshtat.jfif" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5>Кронштадт</h5>
+                            <p>2000 рублей</p>
+                            <button type='button' class='btn btn-success' onclick='selectTour("Кронштадт")'>Выбрать</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Item: Павловск -->
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center">
+                        <img src="images/images.jfif" class='card-img-top' alt="">
+                        <div class='card-body'>
+                            <h5>Павловск</h5>
+                            <p>1500 рублей</p>
+                            <button type='button' class='btn btn-success' onclick='selectTour("Павловск")'>Выбрать</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Order Button -->
+            <button type='button' onclick='submitForm()' class='btn btn-primary mt-3'>Заказать</button>
+
+        </form>
+
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script crossorigin='anonymous'
+        integrity='sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3'
+        src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js'></script>
+
+</body>
+</html>
